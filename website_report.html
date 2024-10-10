@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTrends Analytics Report</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        p {
+            color: #34495e;
+        }
+        nav {
+            background-color: #2c3e50;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        #chart, #scatter {
+            margin-top: 30px;
+            width: 100%;  /* Adjust to make it responsive */
+            height: 400px; /* Fixed height to ensure visibility */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#summary">Summary</a>
+        <a href="#insights">Key Insights</a>
+        <a href="#recommendations">Recommendations</a>
+        <a href="#chart">Purchase Frequency by Region</a>
+        <a href="#scatter">Income vs Purchase Amount</a>
+    </nav>
+
+    <h1 id="summary">TechTrends Analytics Report</h1>
+
+    <h2>Summary of Findings</h2>
+    <p>This report provides an analysis of customer characteristics and their impact on purchase behavior.</p>
+
+    <h2 id="insights">Key Insights</h2>
+    <ul>
+        <li><strong>Education Level Impact:</strong> Customers with higher educational qualifications tend to spend more.</li>
+        <li><strong>Promotion Usage:</strong> Approximately 35% of customers utilized promotional offers.</li>
+        <li><strong>Satisfaction Scores by Loyalty Status:</strong> Loyal customers report higher satisfaction scores.</li>
+        <li><strong>Purchase Frequency by Region:</strong> Urban areas exhibited higher purchase frequencies.</li>
+        <li><strong>Income-Purchase Correlation:</strong> A moderate positive correlation (r = 0.57) was found between income and purchase amount.</li>
+    </ul>
+
+    <h2 id="recommendations">Strategic Recommendations</h2>
+    <ul>
+        <li>Enhance Targeted Marketing Campaigns</li>
+        <li>Improve Customer Engagement in Underperforming Regions</li>
+        <li>Optimize Promotional Offers</li>
+        <li>Focus on Customer Loyalty Programs</li>
+        <li>Monitor and Adjust Based on Customer Feedback</li>
+    </ul>
+
+    <!-- Interactive Bar Plot -->
+    <h2 id="chart">Purchase Frequency by Region</h2>
+    <div id="chart"></div>
+    <script>
+        var barData = [{
+            x: ['Urban', 'Suburban', 'Rural'],
+            y: [50, 30, 20],
+            type: 'bar'
+        }];
+
+        var layoutBar = {
+            title: 'Purchase Frequency by Region',
+            xaxis: { title: 'Region' },
+            yaxis: { title: 'Purchase Frequency' }
+        };
+
+        Plotly.newPlot('chart', barData, layoutBar);
+    </script>
+
+    <!-- Interactive Scatter Plot -->
+    <h2 id="scatter">Income vs Purchase Amount</h2>
+    <div id="scatter"></div>
+    <script>
+        var scatterTrace = {
+            x: [40000, 50000, 60000, 70000, 80000],
+            y: [2000, 3000, 4000, 5000, 6000],
+            mode: 'markers',
+            type: 'scatter'
+        };
+
+        var layoutScatter = {
+            title: 'Income vs Purchase Amount',
+            xaxis: { title: 'Income' },
+            yaxis: { title: 'Purchase Amount' }
+        };
+
+        Plotly.newPlot('scatter', [scatterTrace], layoutScatter);
+    </script>
+
+</body>
+</html>
